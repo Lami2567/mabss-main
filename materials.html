@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mbarara Army Boarding SS - Learning Materials</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body.here {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; 
+            padding: 0; 
+            background-color: #f5f5f5; 
+            color: #333;
+            padding-top: 80px;
+        }
+        .header {
+            background-color: #0e7704;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            width: 100%;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+        
+        .logo {
+            height: 60px;
+            width: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-right: 1rem;
+        }
+        
+        .school-name {
+            margin: 0;
+            font-size: 1.2rem;
+            white-space: nowrap;
+        }
+        
+        nav {
+            display: none;
+            width: 100%;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-item {
+            margin: 0.5rem;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem;
+            border-radius: 4px;
+            display: block;
+        }
+        
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: block;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+            width: 100%;
+            max-width: 300px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+        }
+        
+        .dropdown-container {
+            margin: 20px 0;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+
+        #hero-slideshow {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.1rem;
+        }
+        
+        .materials-section {
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .materials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .material-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .material-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .material-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .material-content {
+            padding: 1.5rem;
+        }
+        
+        .material-content h3 {
+            margin-top: 0;
+            color: #006341;
+        }
+        
+        .material-link {
+            display: inline-block;
+            background-color: #006341;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+        
+        .olevel-section {
+            background-color: #f0f0f0;
+            padding: 2rem 1rem;
+        }
+        
+        .olevel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .subject-container {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+        
+        .subject-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        .subject-box {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        
+        .subject-box h4 {
+            margin-top: 0;
+            color: #006341;
+        }
+        
+        .subject-box ul {
+            padding-left: 1.2rem;
+        }
+        
+        .subject-box li {
+            margin-bottom: 0.3rem;
+        }
+        
+        .subject-box a {
+            color: #006341;
+            text-decoration: none;
+        }
+        
+        .alevel-section {
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .alevel-container {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .combination-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .footer {
+            background-color: #004d33;
+            color: white;
+            padding: 2rem 1rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .footer-section {
+            min-width: 250px;
+        }
+        
+        .footer-heading {
+            border-bottom: 2px solid #006341;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #006341;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .close-modal {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .login-btn {
+            background-color: #006341;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .login-btn:hover {
+            background-color: #004d33;
+        }
+        
+        .message {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 4px;
+        }
+        
+        .message.error {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        
+        .message.success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .admin-notice {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #e3f2fd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #1565c0;
+        }
+        
+        .protected {
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+            
+            nav {
+                display: block;
+                width: auto;
+            }
+            
+            .nav-list {
+                flex-wrap: nowrap;
+            }
+            
+            .materials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .subject-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .combination-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            #hero-slideshow {
+                height: 400px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .materials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .subject-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .school-name {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="here">
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Login to Access Materials</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="userType">I am a:</label>
+                    <select id="userType" required>
+                        <option value="">Select user type</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="studentFields">
+                    <label for="regNumber">Registration Number:</label>
+                    <input type="text" id="regNumber" placeholder="Enter your school registration number" required>
+                </div>
+                
+                <div class="form-group hidden" id="teacherFields">
+                    <label for="tokenNumber">Token Number:</label>
+                    <input type="password" id="tokenNumber" placeholder="Enter your authorized token number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required placeholder="Enter your password">
+                </div>
+                
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            
+            <div id="loginMessage" class="message hidden"></div>
+            
+            <div class="admin-notice">
+                <p>Note: Account creation is restricted. Please see the school administrator to get your login credentials.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="image/logo mabss.jpg" alt="logo mabss" class="logo">
+                <h1 class="school-name">Mbarara Army Boarding<br> Secondary School</h1>
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <nav id="mainNav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="materials.html" class="nav-link">Academics</a></li>
+                    <li class="nav-item"><a href="sports.html" class="nav-link">Co-culrricular Activities</a></li>
+                    <li class="nav-item"><a href="welfare.html" class="nav-link">Welfare</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li class="nav-item"><a href="contacts.html" class="nav-link">Contacts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <section id="hero-slideshow">
+        <div class="hero-content">
+            <div>
+                <h1>My Library On Fingertips(My-LOFT)</h1>
+                <p>Access quality educational resources to support your academic journey</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Hero slideshow
+        const hero = document.getElementById('hero-slideshow');
+        const images = [
+            'url("image/COMP.jpg")',
+            'url("image/.jpeg")',
+            'url("image/.jpg")'
+        ];
+        let current = 0;
+    
+        function changeBackground() {
+            hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), ${images[current]}`;
+            hero.style.backgroundSize = 'cover';
+            hero.style.backgroundPosition = 'center';
+            hero.style.transition = 'background-image 1s ease-in-out';
+            
+            current = (current + 1) % images.length;
+        }
+    
+        setInterval(changeBackground, 4000);
+        changeBackground();
+    </script>
+
+    <section class="materials-section">
+        <h2>Learning Resources by Category</h2>
+        
+        <div class="materials-grid">
+            <div class="material-card">
+                <img src="image/.jpg" alt="Science block">
+                <div class="material-content">
+                    <h3>Science Block</h3>
+                    <p>Resources for Physics, Chemistry, Biology, Mathematics, and Agriculture</p>
+                    <a href="#" class="material-link protected">View Resources</a>
+                </div>
+            </div>
+            
+            <div class="material-card">
+                <img src="image/.jpg" alt="Arts Materials">
+                <div class="material-content">
+                    <h3>Arts & Humanities Block</h3>
+                    <p>Resources for History, Geography, Literature, CRE, and other arts subjects</p>
+                    <a href="#" class="material-link protected">View Resources</a>
+                </div>
+            </div>
+            
+            <div class="material-card">
+                <img src="image/.jpg" alt="Vocational Materials">
+                <div class="material-content">
+                    <h3>LIBARAY</h3>
+                    <p>Resources for Computer Studies, Entrepreneurship, Home Economics, and more</p>
+                    <a href="#" class="material-link protected">View Resources</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="olevel-section">
+        <div class="olevel-container">
+            <h2>Ordinary Level (O-Level) Materials</h2>
+            
+            <div class="subject-container">
+                <h3>S1-S4 Syllabus & Notes</h3>
+                <div class="subject-grid">
+                    <div class="subject-box">
+                        <h4>Mathematics</h4>
+                        <ul>
+                            <li><a href="#" class="protected">S1 Mathematics Notes</a></li>
+                            <li><a href="#" class="protected">S2 Mathematics Notes</a></li>
+                            <li><a href="#" class="protected">S3 Mathematics Notes</a></li>
+                            <li><a href="#" class="protected">S4 Mathematics Notes</a></li>
+                        </ul>
+                    </div>
+                    <div class="subject-box">
+                        <h4>Physics</h4>
+                        <ul>
+                            <li><a href="#" class="protected">S1 Physics Notes</a></li>
+                            <li><a href="#" class="protected">S2 Physics Notes</a></li>
+                            <li><a href="#" class="protected">S3 Physics Notes</a></li>
+                            <li><a href="#" class="protected">S4 Physics Notes</a></li>
+                        </ul>
+                    </div>
+                    <div class="subject-box">
+                        <h4>Chemistry</h4>
+                        <ul>
+                            <li><a href="#" class="protected">S1 Chemistry Notes</a></li>
+                            <li><a href="#" class="protected">S2 Chemistry Notes</a></li>
+                            <li><a href="#" class="protected">S3 Chemistry Notes</a></li>
+                            <li><a href="#" class="protected">S4 Chemistry Notes</a></li>
+                        </ul>
+                    </div>
+                    <div class="subject-box">
+                        <h4>Biology</h4>
+                        <ul>
+                            <li><a href="#" class="protected">S1 Biology Notes</a></li>
+                            <li><a href="#" class="protected">S2 Biology Notes</a></li>
+                            <li><a href="#" class="protected">S3 Biology Notes</a></li>
+                            <li><a href="#" class="protected">S4 Biology Notes</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subject-container">
+                <h3>Past Papers & Revision Materials</h3>
+                <div class="subject-grid">
+                    <div class="subject-box">
+                        <h4>UNEB Past Papers</h4>
+                        <ul>
+                            <li><a href="#" class="protected">2022 Past Papers</a></li>
+                            <li><a href="#" class="protected">2021 Past Papers</a></li>
+                            <li><a href="#" class="protected">2020 Past Papers</a></li>
+                            <li><a href="#" class="protected">2019 Past Papers</a></li>
+                        </ul>
+                    </div>
+                    <div class="subject-box">
+                        <h4>Revision Guides</h4>
+                        <ul>
+                            <li><a href="#" class="protected">Mathematics Revision</a></li>
+                            <li><a href="#" class="protected">Science Revision</a></li>
+                            <li><a href="#" class="protected">Humanities Revision</a></li>
+                            <li><a href="#" class="protected">Vocational Revision</a></li>
+                        </ul>
+                    </div>
+                    <div class="subject-box">
+                        <h4>Mock Examinations</h4>
+                        <ul>
+                            <li><a href="#" class="protected">Term 1 Mock Exams</a></li>
+                            <li><a href="#" class="protected">Term 2 Mock Exams</a></li>
+                            <li><a href="#" class="protected">Term 3 Mock Exams</a></li>
+                            <li><a href="#" class="protected">Pre-UNEB Mocks</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="alevel-section">
+        <h2>Advanced Level (A-Level) Materials</h2>
+        
+        <div class="alevel-container">
+            <div class="combination-grid">
+                <div>
+                    <h3>Science Combinations</h3>
+                    <div class="dropdown-container">
+                        <select id="scienceCombination" onchange="showScienceSubjects()">
+                            <option value="">--Select Your Combination --</option>
+                            <option value="PCM">PCM (Physics, Chemistry, Mathematics)</option>
+                            <option value="PCB">PCB (Physics, Chemistry, Biology)</option>
+                            <option value="BAM">BAM (Biology, Agriculture, Mathematics)</option>
+                            <option value="PAM">PAM (Physics, Agriculture, Mathematics)</option>
+                            <option value="PEM">PEM (Physics, Economics, Mathematics)</option>
+                            <option value="MEG">MEG (Mathematics, Economics, Geography)</option>
+                            <option value="BCM">BCM (Biology, Chemistry, Mathematics )</option>
+                            <option value="GEA">GEA (Geography, Economics, Agriculture)</option>
+                        </select>
+                    
+                        <select id="scienceSubject" class="hidden" onchange="goToScienceNotes()">
+                            <option value="">-- Select Subject --</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>Arts Combinations</h3>
+                    <div class="dropdown-container">
+                        <select id="combination" onchange="showSubjects()">
+                            <option value="">--Select Your Combination --</option>
+                            <option value="DEG">DEG (Divinity, Entrepreneurship, Geography)</option>
+                            <option value="HEG">HEG (History,Economics,Geography)</option>
+                            <option value="HDG">HDG (History,Divinity,Geography)</option>
+                            <option value="HLD">HLD (History,Literature,Divinity)</option>
+                            <option value="DAG">DAG (Divinity,Art,Geography)</option>
+                            <option value="LAG">LAG (Literature,Art,Geography)</option>
+                            <option value="sub">SUB (ICT, General Paper)</option>
+                        </select>
+                    
+                        <select id="subject" class="hidden" onchange="goToNotes()">
+                            <option value="">-- Select Subject --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h3>A-Level Past Papers</h3>
+                <div class="subject-grid">
+                    <div class="subject-box">
+                        <h4>Science Papers</h4>
+                        <ul>
+                            <li><a href="#" class="protected">Physics Past Papers</a></li>
+                            <li><a href="#" class="protected">Chemistry Past Papers</a></li>
+                            <li><a href="#" class="protected">Biology Past Papers</a></li>
+                            <li><a href="#" class="protected">Mathematics Past Papers</a></li>
+                        </ul>
+                    </div>
+                    <div class="subject-box">
+                        <h4>Arts Papers</h4>
+                        <ul>
+                            <li><a href="#" class="protected">History Past Papers</a></li>
+                            <li><a href="#" class="protected">Geography Past Papers</a></li>
+                            <li><a href="#" class="protected">Literature Past Papers</a></li>
+                            <li><a href="#" class="protected">Economics Past Papers</a></li>
+                        </ul>
+                    </div>
+                    <div class="subject-box">
+                        <h4>General Papers</h4>
+                        <ul>
+                            <li><a href="#" class="protected">General Paper Past Papers</a></li>
+                            <li><a href="#" class="protected">Subsidiary ICT Past Papers</a></li>
+                            <li><a href="#" class="protected">Subsidiary Math Past Papers</a></li>
+                            <li><a href="#" class="protected">Subsidiary Art Past Papers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-list">
+                    <li class="footer-item"><a href="index.html" class="footer-link">Home</a></li>
+                    <li class="footer-item"><a href="materials.html" class="footer-link">Academics</a></li>
+                    <li class="footer-item"><a href="sports.html" class="footer-link">Co-culrricular Activities</a></li>
+                    <li class="footer-item"><a href="welfare.html" class="footer-link">Welfare</a></li>
+                    <li class="footer-item"><a href="contacts.html" class="footer-link">Contacts</a></li>
+                    <li class="footer-item"><a href="staff.html" class="footer-link">Our staff</a></li>
+                </ul>
+            </div>
+           <div class="footer-section">
+                <h3 class="footer-heading">Contact Us</h3>
+                <p><strong>Address:</strong> P.O. Box 521, Mbarara, Uganda</p>
+                <p><strong>Phone:</strong> +256 782 096231 |+256 782 371824 |+256779927775</p>
+                <p><strong>Email:</strong> mabss2014@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-heading">School Hours</h3>
+                <p><strong>Monday - Friday:</strong> 7:30 AM - 5:00 PM</p>
+                <p><strong>Saturday:</strong> 8:00 AM - 5:00 PM</p>
+                <p><strong>Sunday:</strong> Closed (Except for Boarders)</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mbarara Army Boarding Secondary School. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Login System Implementation
+        document.addEventListener('DOMContentLoaded', function() {
+            // User database (in a real implementation, this would be server-side)
+            const users = {
+                // Sample students (registration numbers)
+                "S12345": { password: "student123", type: "student", name: "John Student" },
+                "S67890": { password: "student456", type: "student", name: "Mary Student" },
+                
+                // Sample teachers (token numbers)
+                "T987": { password: "teacher123", type: "teacher", name: "Mr. Smith" },
+                "T654": { password: "teacher456", type: "teacher", name: "Mrs. Johnson" },
+                
+                // Admin account (for demonstration)
+                "ADMIN001": { password: "admin123", type: "admin", name: "School Admin" }
+            };
+  // DOM Elements
+            const loginModal = document.getElementById('loginModal');
+            const loginForm = document.getElementById('loginForm');
+            const userTypeSelect = document.getElementById('userType');
+            const studentFields = document.getElementById('studentFields');
+            const teacherFields = document.getElementById('teacherFields');
+            const regNumberInput = document.getElementById('regNumber');
+            const tokenNumberInput = document.getElementById('tokenNumber');
+            const passwordInput = document.getElementById('password');
+            const loginMessage = document.getElementById('loginMessage');
+            const closeModal = document.querySelector('.close-modal');
+            
+            // Track login status
+            let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+            
+            // Protected links - these will trigger login modal
+            const protectedLinks = document.querySelectorAll('.protected');
+            
+            // User type toggle
+            userTypeSelect.addEventListener('change', function() {
+                if (this.value === 'student') {
+                    studentFields.classList.remove('hidden');
+                    teacherFields.classList.add('hidden');
+                } else if (this.value === 'teacher') {
+                    studentFields.classList.add('hidden');
+                    teacherFields.classList.remove('hidden');
+                } else {
+                    studentFields.classList.add('hidden');
+                    teacherFields.classList.add('hidden');
+                }
+            });
+            
+            // Login form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const userType = userTypeSelect.value;
+                let userId, user;
+                
+                if (userType === 'student') {
+                    userId = regNumberInput.value.trim();
+                    user = users[userId];
+                } else if (userType === 'teacher') {
+                    userId = tokenNumberInput.value.trim();
+                    user = users[userId];
+                }
+                
+                const password = passwordInput.value;
+                
+                // Validate
+                if (!userType) {
+                    showMessage('Please select user type', 'error');
+                    return;
+                }
+                
+                if (!userId) {
+                    showMessage(`Please enter your ${userType === 'student' ? 'registration' : 'token'} number`, 'error');
+                    return;
+                }
+                
+                if (!password) {
+                    showMessage('Please enter your password', 'error');
+                    return;
+                }
+                
+                if (!user || user.password !== password) {
+                    showMessage('Invalid credentials. Please try again.', 'error');
+                    return;
+                }
+                
+                // Successful login
+                isLoggedIn = true;
+                currentUser = user;
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                
+                showMessage(`Welcome, ${user.name}!`, 'success');
+                
+                // Close modal after 1 second
+                setTimeout(() => {
+                    loginModal.style.display = 'none';
+                    loginForm.reset();
+                    loginMessage.classList.add('hidden');
+                }, 1000);
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', function() {
+                loginModal.style.display = 'none';
+                loginForm.reset();
+                loginMessage.classList.add('hidden');
+            });
+            
+            // Show message
+            function showMessage(text, type) {
+                loginMessage.textContent = text;
+                loginMessage.className = `message ${type}`;
+                loginMessage.classList.remove('hidden');
+            }
+            
+            // Protected link handling
+            protectedLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (!isLoggedIn) {
+                        e.preventDefault();
+                        loginModal.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === loginModal) {
+                    loginModal.style.display = 'none';
+                    loginForm.reset();
+                    loginMessage.classList.add('hidden');
+                }
+            });
+            
+            // Check login status on page load
+            if (isLoggedIn) {
+                console.log(`User ${currentUser.name} is logged in`);
+            }
+            
+            // Combination dropdown functionality
+            const scienceCombinations = {
+                "PCM": {
+                    "Physics1": "physics-notes.html",
+                    "Physics2": "physics-notes.html",
+                    "Physics3": "physics-notes.html",
+                    "Chemistry1": "chemistry-notes.html",
+                    "Chemistry2": "chemistry-notes.html",
+                    "Chemistry3": "chemistry-notes.html",
+                    "Mathematics1": "math-notes.html",
+                    "Mathematics2": "math-notes.html",
+                    "Mathematics3": "math-notes.html"
+                },
+                "PEM": {
+                    "Physics1": "physics-notes.html",
+                    "Physics2": "physics-notes.html",
+                    "Physics3": "physics-notes.html",
+                    "Economics1": "economics-notes.html",
+                    "Economics2": "economics-notes.html",
+                    "Mathematics1": "math-notes.html",
+                    "Mathematics2": "math-notes.html",
+                    "Mathematics3": "math-notes.html"
+                },
+                "PCB": {
+                    "Physics1": "physics-notes.html",
+                    "Physics2": "physics-notes.html",
+                    "Physics3": "physics-notes.html",
+                    "Chemistry1": "chemistry-notes.html",
+                    "Chemistry2": "chemistry-notes.html",
+                    "Chemistry3": "chemistry-notes.html",
+                    "Biology1": "biology-notes.html",
+                    "Biology2": "biology-notes.html",
+                    "Biology3": "biology-notes.html"
+                },
+                "BAM": {
+                    "Biology1": "biology-notes.html",
+                    "Biology2": "biology-notes.html",
+                    "Biology3": "biology-notes.html",
+                    "Agriculture1": "agriculture-notes.html",
+                    "Agriculture2": "agriculture-notes.html",
+                    "Agriculture3": "agriculture-notes.html",
+                    "Mathematics1": "math-notes.html",
+                    "Mathematics2": "math-notes.html",
+                    "Mathematics3": "math-notes.html"
+                },
+                "PAM": {
+                    "Physics1": "physics-notes.html",
+                    "Physics2": "physics-notes.html",
+                    "Physics3": "physics-notes.html",
+                    "Agriculture1": "agriculture-notes.html",
+                    "Agriculture2": "agriculture-notes.html",
+                    "Agriculture3": "agriculture-notes.html",
+                    "Mathematics1": "math-notes.html",
+                    "Mathematics2": "math-notes.html",
+                    "Mathematics3": "math-notes.html"
+                },
+                "GEA":{
+                    "Geography1":"Geography1-notes",
+                    "Geography2":"Geography2-notes",
+                    "Geography3":"Geography3-notes",
+                    "Economics1": "economics-notes.html",
+                    "Economics2": "economics-notes.html",
+                    "Agriculture1": "agriculture-notes.html",
+                    "Agriculture2": "agriculture-notes.html",
+                    "Agriculture3": "agriculture-notes.html",
+                },
+                "MEG":{
+                    "Mathematics1": "math-notes.html",
+                    "Mathematics2": "math-notes.html",
+                    "Mathematics3": "math-notes.html",
+                    "Economics1": "economics-notes.html",
+                    "Economics2": "economics-notes.html",
+                    "Geography1":"Geography1-notes",
+                    "Geography2":"Geography2-notes",
+                    "Geography3":"Geography3-notes",
+                }   
+            };
+
+            const combinations = {
+                "DEG": {
+                    "Divinity1": "BOOKS/DIVINITY/DIV 4 NOTES- prt.pdf",
+                    "Divinity2": "BOOKS/DIVINITY/DIV 4 NOTES- prt.dpf",
+                    "Divinity4": "BOOKS/DIVINITY/DIV 4 NOTES- prt.dpf",
+                    "Entrepreneurship": "entrepreneurship-notes.html",
+                    "Geography1": "geography-notes.html",
+                    "Geography2": "geography-notes.html"
+                },
+                "DAG":{
+                    "Divinity1": "BOOKS/DIVINITY/DIV 4 NOTES- prt.dpf",
+                    "Divinity2": "BOOKS/DIVINITY/DIV 4 NOTES- prt.dpf",
+                    "Divinity4": "BOOKS/DIVINITY/DIV 4 NOTES- prt.dpf",
+                    "Art1": "artbook.dpf",
+                    "Art3": "artbook.dpf",
+                    "Art4": "artbook.dpf",
+                    "Art5": "artbook.dpf",
+                    "Geography1": "geography-notes.html",
+                    "Geography2": "geography-notes.html"
+                },
+                "HLD":{
+                    "History1": "history.pdf",
+                    "History3": "histpory.pdf",
+                    "Literature1": "literature",
+                    "Literature2": "literature",
+                    "Literature3": "literature",
+                    "Divinity1": "BOOKS/DIVINITY/DIV 4 NOTES- prt.dpf",
+                    "Divinity2": "BOOKS/DIVINITY/DIV 4 NOTES- prt.dpf",
+                    "Divinity4": "BOOKS/DIVINITY/DIV 4 NOTES- prt.dpf"
+                },
+                "HEG": {
+                    "History1": "history-notes.html",
+                    "History3": "histpory.pdf",
+                    "Economics1": "economics-notes.html",
+                    "Economics2": "economics-notes.html",
+                    "Enterprenuership1": "ent",
+                    "Enterprenuership2": "ent",
+                    "Enterprenuership3": "ent",
+                    "Geography1": "geography-notes.html",
+                    "Geography2": "geography-notes.html"
+                },
+                "HDG": {
+                    "History1": "physics-notes.html",
+                    "History2": "history-notes.html",
+                    "Divinity1": "chemistry-notes.html",
+                    "Divinity2": "BOOKS/DIVINITY/DIV 4 NOTES- prt.dpf",
+                    "Divinity4": "BOOKS/DIVINITY/DIV 4 NOTES- prt.dpf",
+                    "Geography1": "math-notes.html",
+                    "Geography2": "math-notes.html"
+                },
+                "sub": {
+                    "ICT": "physics-notes.html",
+                    "History2": "history-notes.html",
+                    "Divinity1": "chemistry-notes.html",
+                    "Divinity2": "BOOKS/DIVINITY/DIV 4 NOTES- prt.dpf",
+                    "Divinity4": "BOOKS/DIVINITY/DIV 4 NOTES- prt.dpf",
+                    "Geography1": "math-notes.html",
+                    "Geography2": "math-notes.html"
+                }
+            };
+
+            function showScienceSubjects() {
+                const comboSelect = document.getElementById("scienceCombination");
+                const subjectSelect = document.getElementById("scienceSubject");
+                
+                subjectSelect.innerHTML = '<option value="">-- Select Subject --</option>';
+                
+                const selectedCombo = comboSelect.value;
+                
+                if (selectedCombo) {
+                    subjectSelect.classList.remove("hidden");
+                    
+                    for (const subject in scienceCombinations[selectedCombo]) {
+                        const option = document.createElement("option");
+                        option.value = scienceCombinations[selectedCombo][subject];
+                        option.textContent = subject;
+                        subjectSelect.appendChild(option);
+                    }
+                } else {
+                    subjectSelect.classList.add("hidden");
+                }
+            }
+
+            function goToScienceNotes() {
+                const subjectSelect = document.getElementById("scienceSubject");
+                if (subjectSelect.value) {
+                    if (!isLoggedIn) {
+                        loginModal.style.display = 'block';
+                        return;
+                    }
+                    window.location.href = subjectSelect.value;
+                }
+            }
+
+            function showSubjects() {
+                const comboSelect = document.getElementById("combination");
+                const subjectSelect = document.getElementById("subject");
+                
+                subjectSelect.innerHTML = '<option value="">-- Select Subject --</option>';
+                
+                const selectedCombo = comboSelect.value;
+                
+                if (selectedCombo) {
+                    subjectSelect.classList.remove("hidden");
+                    
+                    for (const subject in combinations[selectedCombo]) {
+                        const option = document.createElement("option");
+                        option.value = combinations[selectedCombo][subject];
+                        option.textContent = subject;
+                        subjectSelect.appendChild(option);
+                    }
+                } else {
+                    subjectSelect.classList.add("hidden");
+                }
+            }
+
+            function goToNotes() {
+                const subjectSelect = document.getElementById("subject");
+                if (subjectSelect.value) {
+                    if (!isLoggedIn) {
+                        loginModal.style.display = 'block';
+                        return;
+                    }
+                    window.location.href = subjectSelect.value;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

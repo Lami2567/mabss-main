@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mbarara Army Boarding Secondary School - Home</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body.here {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            padding-top: 90px; /* Space for fixed header */
+        }
+        
+        /* Header & Navigation */
+        .header {
+            background-color: #0e7704;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            padding: 0.5rem 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            min-width: 250px;
+        }
+        
+        .helo {
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            margin-right: 1rem;
+        }
+        
+        .school-name {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .division-logo {
+            height: 50px;
+            margin-left: 1rem;
+            flex-shrink: 0;
+        }
+        
+        /* Typewriter Effect */
+        .typewriter {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid white;
+            width: fit-content;
+            margin: 0 auto;
+            color: white;
+            padding: 0 1rem;
+            text-align: center;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('image/back4.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem 1rem;
+            width: 100%;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Button Section */
+        .button-section {
+            max-width: 1600px;
+            padding: 3rem 1rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .learn-button {
+            background-color: #006341;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+        
+        .learn-button:hover {
+            background-color: #004d33;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #004d33;
+            color: white;
+            padding: 2rem 1rem;
+            width: 100%;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .footer-section {
+            min-width: 250px;
+        }
+        
+        .footer-heading {
+            border-bottom: 2px solid #006341;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-item {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: #f0f0f0;
+            text-decoration: underline;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #006341;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 1.2rem;
+            }
+            
+            .helo {
+                height: 50px;
+                width: 50px;
+            }
+            
+            .division-logo {
+                height: 40px;
+            }
+            
+            .typewriter {
+                font-size: 1.5rem;
+                white-space: normal;
+                border-right: none;
+            }
+            
+            .hero {
+                min-height: 400px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                margin-bottom: 0.5rem;
+            }
+            
+            .division-logo {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+            
+            .typewriter {
+                font-size: 1.2rem;
+            }
+            
+            .school-name {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .footer-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .typewriter {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="here">
+    <!-- Header -->
+    <div class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="image/logo mabss.jpg" alt="logo mabss" class="helo">
+                <h1 class="school-name">Mbarara Army Boarding Secondary School</h1>
+            </div>
+            <img src="image/4th.png" class="division-logo" alt="Division Logo">
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="typewriter" id="typewriter"></div>
+        </div>
+    </section>
+
+    <!-- Button Section -->
+    <div class="button-section">
+        <a href="homepage.html" class="learn-button">Learn More</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-list">
+                    <li class="footer-item"><a href="index.html" class="footer-link">Home</a></li>
+                    <li class="footer-item"><a href="materials.html" class="footer-link">Academics</a></li>
+                    <li class="footer-item"><a href="sports.html" class="footer-link">Co-culrricular Activities</a></li>
+                    <li class="footer-item"><a href="welfare.html" class="footer-link">Welfare</a></li>
+                    <li class="footer-item"><a href="contacts.html" class="footer-link">Contacts</a></li>
+                    <li class="footer-item"><a href="staff.html" class="footer-link">Our staff</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-heading">Contact Us</h3>
+                <p><strong>Address:</strong> P.O. Box 521, Mbarara, Uganda</p>
+                <p><strong>Phone:</strong> +256 782 096231 | +256 782 371824</p>
+                <p><strong>Email:</strong> mabss2014@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-heading">School Hours</h3>
+                <p><strong>Monday - Friday:</strong> 7:30 AM - 5:00 PM</p>
+                <p><strong>Saturday:</strong> 8:00 AM - 5:00 PM</p>
+                <p><strong>Sunday:</strong> Closed (Except for Boarders)</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mbarara Army Boarding Secondary School. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Typewriter Effect
+        const texts = [
+            "Welcome to our website!",
+            "MBARARA ARMY BOARDING SECONDARY SCHOOL.",
+            "Contact us for more details.",
+            "Creativity For Excellence."
+        ];
+    
+        let textIndex = 0;
+        let charIndex = 0;
+        let currentText = '';
+        const typewriter = document.getElementById('typewriter');
+    
+        function type() {
+            if (charIndex < texts[textIndex].length) {
+                currentText += texts[textIndex].charAt(charIndex);
+                typewriter.textContent = currentText;
+                charIndex++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(erase, 2000); // Wait before erasing
+            }
+        }
+    
+        function erase() {
+            if (charIndex > 0) {
+                currentText = currentText.slice(0, -1);
+                typewriter.textContent = currentText;
+                charIndex--;
+                setTimeout(erase, 50);
+            } else {
+                textIndex = (textIndex + 1) % texts.length;
+                setTimeout(type, 500);
+            }
+        }
+    
+        type(); // Start typing
+    
+        // Adjust typewriter for mobile
+        function adjustTypewriter() {
+            if (window.innerWidth <= 768) {
+                typewriter.style.whiteSpace = 'normal';
+                typewriter.style.borderRight = 'none';
+            } else {
+                typewriter.style.whiteSpace = 'nowrap';
+                typewriter.style.borderRight = '2px solid white';
+            }
+        }
+        
+        window.addEventListener('resize', adjustTypewriter);
+        adjustTypewriter(); // Initial check
+    </script>
+</body>
+</html>

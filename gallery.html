@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mbarara Army Boarding SS - Gallery</title>
+    <style>
+        .here {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; 
+            padding: 0; 
+            background-color: #f5f5f5; 
+            color: #333;
+        }
+        
+        /* Responsive Navigation */
+        .header {
+            background-color: #0e7704;
+            color: white;
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-right: 0.5rem;
+        }
+        
+        .school-name {
+            margin: 0;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+        
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .nav-menu {
+            display: none;
+            background-color: #0e7704;
+            padding: 1rem;
+        }
+        
+        .nav-menu.show {
+            display: block;
+        }
+        
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .nav-item {
+            margin: 0.5rem 0;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem;
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('image/SPRTS.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 300px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 1rem;
+        }
+        
+        .hero-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+        }
+        
+        /* Gallery Navigation */
+        .gallery-nav {
+            padding: 1rem;
+            background-color: #006341;
+        }
+        
+        .gallery-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-buttons {
+            display: flex;
+            overflow-x: auto;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+        }
+        
+        .gallery-button {
+            background-color: white;
+            color: #006341;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .gallery-link {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        /* Photo Gallery */
+        .gallery-section {
+            padding: 2rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .gallery-grid {
+            columns: 1;
+            column-gap: 1rem;
+        }
+        
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-caption {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Video Gallery */
+        .video-section {
+            padding: 2rem 1rem;
+            background-color: #f0f0f0;
+        }
+        
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .video-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #006341;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .video-player {
+            width: 100%;
+            display: block;
+        }
+        
+        .video-info {
+            padding: 1rem;
+        }
+        
+        .video-card-title {
+            color: #006341;
+            margin: 0;
+        }
+        
+        .video-card-desc {
+            margin: 0.5rem 0 0;
+            color: #666;
+        }
+        
+        /* Alumni Gallery */
+        .alumni-section {
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .alumni-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #006341;
+        }
+        
+        .alumni-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .alumni-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .alumni-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid #006341;
+        }
+        
+        .alumni-name {
+            margin: 0;
+            color: #006341;
+        }
+        
+        .alumni-position {
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #004d33;
+            color: white;
+            padding: 2rem 1rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .footer-section {
+            min-width: 250px;
+        }
+        
+        .footer-heading {
+            border-bottom: 2px solid #006341;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #006341;
+        }
+        
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+            
+            .nav-menu {
+                display: block;
+                padding: 0;
+            }
+            
+            .nav-list {
+                flex-direction: row;
+            }
+            
+            .nav-item {
+                margin: 0 0.5rem;
+            }
+            
+            .hero {
+                min-height: 400px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .gallery-grid {
+                columns: 2;
+            }
+            
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .alumni-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .hero {
+                min-height: 500px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .gallery-grid {
+                columns: 3;
+            }
+            
+            .video-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .alumni-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="here">
+    <!-- Navigation Bar -->
+    <div class="header">
+        <header>
+            <div class="nav-container">
+                <div class="logo-container">
+                    <img src="image/logo mabss.jpg" alt="logo mabss" class="logo">
+                    <h1 class="school-name">Mbarara Army Boarding SS</h1>
+                </div>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+            </div>
+            <nav class="nav-menu" id="mainNav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="welfare.html" class="nav-link">Welfare</a></li>
+                    <li class="nav-item"><a href="materials.html" class="nav-link">Materials</a></li>
+                    <li class="nav-item"><a href="contacts.html" class="nav-link">Contacts</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <!-- Gallery Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">School Gallery</h1>
+            <p class="hero-subtitle">Capturing moments of excellence, discipline, and achievement</p>
+        </div>
+    </section>
+
+    <!-- Gallery Navigation -->
+    <section class="gallery-nav">
+        <div class="gallery-nav-container">
+            <div class="gallery-buttons">
+                <a href="events.html" class="gallery-link">All Photos</a>
+                <a href="staff.html" class="gallery-link">Staff</a>
+                <a href="events.html" class="gallery-link">Sports</a>
+                <a href="events.html" class="gallery-link">Events</a>
+                <a href="events.html" class="gallery-link">Students Life</a>
+                <a href="events.html" class="gallery-link">Achievements</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="image/SPRTS.jpg" alt="School Event" class="gallery-image">
+                <p class="gallery-caption">Annual Sports Day 2023</p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/lib.jpg" alt="Library" class="gallery-image">
+                <p class="gallery-caption">School Library</p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/COMP.jpg" alt="Computer Lab" class="gallery-image">
+                <p class="gallery-caption">Computer Laboratory</p>
+            </div>
+            <div class="gallery-item">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Video Gallery -->
+    <section class="video-section">
+        <div class="video-container">
+            <h2 class="video-title">Video Gallery</h2>
+            
+            <div class="video-grid">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <video controls class="video-player" poster="video-poster.jpg">
+                        <source src="image/sports.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h3 class="video-card-title">School Sports Day 2025</h3>
+                        <p class="video-card-desc">Highlights from our annual sports competition</p>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <video controls class="video-player" poster="video-poster.jpg">
+                        <source src="image/sports.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-info">
+                        <h3 class="video-card-title">End of term Ceremony</h3>
+                        <p class="video-card-desc">Memorable moments from our E.O.T 2024</p>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <video controls class="video-player" poster="video-poster.jpg">
+                        <source src="image/sports.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-info">
+                        <h3 class="video-card-title">Campus Tour</h3>
+                        <p class="video-card-desc">Explore our facilities and classrooms</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Alumni Gallery -->
+    <section class="alumni-section">
+        <h2 class="alumni-title">OB's & OG's Success Stories</h2>
+        
+        <div class="alumni-grid">
+            <div class="alumni-card">
+                <img src="image/hm.jpg" alt="Alumni" class="alumni-image">
+                <h3 class="alumni-name">Miss KABAHINDA SHANNITAH</h3>
+                <p class="alumni-position">Social Worker</p>
+                <p>Class of 2022, now pursuing Masters of Social Work</p>
+            </div>
+            
+            <div class="alumni-card">
+                <img src="image/tr.JPG" alt="Alumni" class="alumni-image">
+                <h3 class="alumni-name">Miss ABAASA NANCY PATRA</h3>
+                <p class="alumni-position">MENTOR</p>
+                <p>Class of 2023, works with EDUCATE UGANDA</p>
+            </div>
+            
+            <div class="alumni-card">
+                <img src="image/MS.jpg" alt="Alumni" class="alumni-image">
+                <h3 class="alumni-name">MR. TWIJUKYE EDSON</h3>
+                <p class="alumni-position">GRC of COMPUTER SCIENCE at YMCA</p>
+                <p>Former H.P (2022-2023)</p>
+            </div>
+            
+            <div class="alumni-card">
+                <img src="image/no.jpg" alt="Alumni" class="alumni-image">
+                <h3 class="alumni-name">MR. AMWINE FRANKLINE</h3>
+                <p class="alumni-position">He was our OB since 2017-2023</p>
+                <p><br>7 Years of Transformation & Triumph!🎓✨From the timid S.1 student to the confident S.6 graduate, this school has been my foundation a place of learning, growth, and unforgettable memories.  
+                <p><br>A student at KABALE UNIVERSITY <br>Pursuing I.T</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="#" style="display: inline-block; background-color: #006341; color: white; padding: 0.8rem 1.5rem; border-radius: 4px; text-decoration: none;">View More Stories</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-list">
+                   <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="welfare.html" class="nav-link">Welfare</a></li>
+                    <li class="nav-item"><a href="materials.html" class="nav-link">Academics</a></li>
+                    <li class="nav-item"><a href="contacts.html" class="nav-link">Contacts</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-heading">Contact Us</h3>
+                <p><strong>Address:</strong> P.O. Box 521, Mbarara, Uganda</p>
+                <p><strong>Phone:</strong> +256 782 096231 | +256 782 371824</p>
+                <p><strong>Email:</strong> mabss2014@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-heading">School Hours</h3>
+                <p><strong>Monday - Friday:</strong> 7:30 AM - 5:00 PM</p>
+                <p><strong>Saturday:</strong> 8:00 AM - 5:00 PM</p>
+                <p><strong>Sunday:</strong> Closed (Except for Boarders)</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mbarara Army Boarding Secondary School. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+       document.getElementById('menuToggle').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
